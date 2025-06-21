@@ -1,0 +1,196 @@
+openapi: 3.0.0
+info:
+  title: Portfolio API
+  version: 1.0.0
+paths:
+  /introduction:
+    get:
+      tags:
+        - Introduction
+      summary: Introduction endpoint
+      operationId: getIntroduction
+      responses:
+        '200':
+          description: An Intro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntroductionDto'
+  /projects:
+    get:
+      tags:
+        - Projects
+      summary: Projects endpoint
+      operationId: getProjects
+      responses:
+        '200':
+          description: An array of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectDtoResponse'
+  /roles:
+    get:
+      tags:
+        - roles
+      summary: roles endpoint
+      operationId: getRoles
+      responses:
+        '200':
+          description: An array of roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleDtoResponse'
+  /degrees:
+    get:
+      tags:
+        - degrees
+      summary: degrees endpoint
+      operationId: getDegrees
+      responses:
+        '200':
+          description: An array of degrees
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DegreeDtoResponse'
+  /locations:
+    get:
+      tags:
+        - locations
+      summary: locations endpoint
+      operationId: getLocations
+      responses:
+        '200':
+          description: An array of locations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoResponse'
+  /employers:
+    get:
+      tags:
+        - employers
+      summary: employers endpoint
+      operationId: getEmployers
+      responses:
+        '200':
+          description: An array of employers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployerDtoResponse'
+components:
+  schemas:
+    IntroductionDto:
+      type: object
+      properties:
+        summary:
+          type: string
+        points:
+          type: array
+          items:
+            type: string
+    ProjectDtoResponse:
+      type: object
+      properties:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectDto'
+    RoleDtoResponse:
+      type: object
+      properties:
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleDto'
+    DegreeDtoResponse:
+      type: object
+      properties:
+        degrees:
+          type: array
+          items:
+            $ref: '#/components/schemas/DegreeDto'
+    LocationDtoResponse:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationDto'
+    EmployerDtoResponse:
+      type: object
+      properties:
+        employers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployerDto'
+    ProjectDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        description:
+          type: string
+        location:
+          $ref: '#/components/schemas/LocationDto'
+    RoleDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    DegreeDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        university:
+          type: string
+        location:
+          $ref: '#/components/schemas/LocationDto'
+    LocationDto:
+      type: object
+      properties:
+        id:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+    EmployerDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        location:
+          $ref: '#/components/schemas/LocationDto'
+        role:
+          $ref: '#/components/schemas/RoleDto'
+        projects:
+            type: array
+            items:
+                $ref: '#/components/schemas/ProjectDto'
