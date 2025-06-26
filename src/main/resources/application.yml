@@ -15,9 +15,22 @@ spring:
     console:
       enabled: true
 
+jwt:
+  secret: dGhpcy1pcy1hLXNlY3VyZS1zZWNyZXQtbWFkZS1mb3ItanNvbndlYnRva2Vucw==
+
+
 logging:
   level:
     root: INFO
     com.viswateja.portfolio: DEBUG
   file:
     name: logs/portfolio.log
+
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: jwt-key

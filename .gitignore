@@ -4,7 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+keystore.p12
 ### STS ###
 .apt_generated
 .classpath
@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/keystore.p12
+/logs/portfolio.log
+/logs/portfolio.log.2025-06-20.0.gz
+/logs/portfolio.log.2025-06-19.0.gz
+/logs/portfolio.log.2025-06-21.0.gz

@@ -3,6 +3,32 @@ info:
   title: Portfolio API
   version: 1.0.0
 paths:
+  /auth/token:
+    get:
+      tags:
+        - token
+      summary: token endpoint
+      operationId: getToken
+      parameters:
+        - in: query
+          name: username
+          required: true
+          schema:
+            type: string
+          description: The username for which to generate a token
+        - in: query
+          name: password
+          required: true
+          schema:
+            type: string
+          description: The password for the user
+      responses:
+        '200':
+          description: A token
+          content:
+            application/json:
+              schema:
+                type: string
   /introduction:
     get:
       tags:
