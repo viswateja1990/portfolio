@@ -15,8 +15,7 @@ spring:
     console:
       enabled: true
 
-jwt:
-  secret: dGhpcy1pcy1hLXNlY3VyZS1zZWNyZXQtbWFkZS1mb3ItanNvbndlYnRva2Vucw==
+
 
 
 logging:
